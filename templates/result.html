@@ -1,0 +1,99 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Stock Profile Calculator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static '/cover.css' %}">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h4 class="masthead-brand">Stock Profile Calculator</h4>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="{% url 'stockprofile' %}">Re-Calculate</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h4 >PROFIT REPORT</h4>
+        <br />
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <table>
+                  <tr>
+                    <td><p class="lead">Proceeds:</p></td>
+                    <td><p class="lead">{{data.result.proceeds}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Costs:</p></td>
+                    <td><p class="lead">{{data.result.costs}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Total Purchase Price:</p></td>
+                    <td><p class="lead">{{data.result.total_purchase_price}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Buy Commission:</p></td>
+                    <td><p class="lead">{{data.result.buy_commission}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Sell Commission:</p></td>
+                    <td><p class="lead">{{data.result.sell_commission}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Tax on Capital Gain:</p></td>
+                    <td><p class="lead">{{data.result.tax_on_capital_gain}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Net Profit:</p></td>
+                    <td><p class="lead">{{data.result.net_profit}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Return on Investment:</p></td>
+                    <td><p class="lead">{{data.result.return_on_investment}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Break Even Price:</p></td>
+                    <td><p class="lead">{{data.result.break_even_price}}</p></td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="  sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  </body>
+</html>
