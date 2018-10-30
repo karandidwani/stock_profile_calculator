@@ -25,7 +25,7 @@ SECRET_KEY = 'qt40%u@@a7%&5nx3)mh!a+)6n8ecpk%w55*jo4c@gv+=^i&$74'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.218.26.155','karandidwani.com']
 
 
 # Application definition
@@ -119,7 +119,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
+   
 ]

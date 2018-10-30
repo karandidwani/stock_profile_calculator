@@ -9,10 +9,8 @@ def contact(request):
 
 def count(request):
 	if request.method == 'GET':
-		print("inside get")
 		word_count = 0
 	elif request.method == 'POST':
-		print("inside post")
 		text = request.POST['text']
 		word_count = len(text.split())
 	return render(request, "count.html", {'count':word_count})
@@ -20,10 +18,8 @@ def count(request):
 def stockprofile(request):
 	data = {}
 	if request.method == 'GET':
-		print("inside get")
 		data['valid'] = 'get'
 	elif request.method == 'POST':
-		print("inside post")
 		if(request.POST['ticker_symbol'] and request.POST['allotment'] \
 		and request.POST['final_share_price'] and request.POST['sell_commission'] \
 		and request.POST['initial_share_price'] and request.POST['buy_commission'] \
