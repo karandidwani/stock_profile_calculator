@@ -72,23 +72,39 @@
           <br />
         </form>
       </div>
-      <br />
       {% if data.response %}
-        <p class="lead">
-          {{data.current_time}}
-        </p>
-        <p class="lead">
-          {{data.company_name}}
-        </p>
-        <p class="lead">
-          {{data.latest_price}}
-        </p>
-        <p class="lead">
-          {{data.change_sign}}{{data.change}}
-        </p>
-        <p class="lead">
-          {{data.change_sign}}{{data.change_percent}}%
-        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <table>
+                  <tr>
+                    <td><p class="lead">Time:</p></td>
+                    <td><p class="lead">{{data.current_time}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Company Name:</p></td>
+                    <td><p class="lead">{{data.company_name}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Stock Price:</p></td>
+                    <td><p class="lead">{{data.latest_price}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Stock Change:</p></td>
+                    <td><p class="lead">{{data.change_sign}}{{data.change}}</p></td>
+                  </tr>
+                  <tr>
+                    <td><p class="lead">Stock Change % :</p></td>
+                    <td><p class="lead">{{data.change_sign}}{{data.change_percent}}</p></td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+
       {% endif %}
     </main>
 
