@@ -24,6 +24,7 @@ urlpatterns = [
     path('contact/',views.contact),
     path('count/',views.count, name = 'count'),
     path('stockprofile/',views.stockprofile, name = 'stockprofile'),
+    path('stockdetails/', views.stockdetails, name = 'stockdetails')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

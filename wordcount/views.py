@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import requests
+import datetime, time
 
 def home(request):
 	return render(request, "home.html")
@@ -14,6 +16,45 @@ def count(request):
 		text = request.POST['text']
 		word_count = len(text.split())
 	return render(request, "count.html", {'count':word_count})
+
+def stockdetails(request):
+	data = {}
+	if request.method == 'GET':
+		data['valid'] = 'get'
+	elif request.method == 'POST':
+		if(request.POST['ticker_symbol']):
+			try:
+				data['valid'] = True
+				ticker_symbol = request.POST['ticker_symbol'] or "ADBE"
+				domain = 'https://api.iextrading.com/1.0/stock/'
+				url = domain + ticker_symbol + '/quote'
+				output = requests.get(url).json()
+				if output:
+					data['response'] = output
+
+					symbol = output['symbol']
+					current_time = time.asctime( time.localtime(time.time()))
+					data['current_time'] = current_time
+					company_name = output['companyName']
+					data['company_name']  = company_name
+					latest_price = output['latestPrice']
+					data['latest_price'] = latest_price
+					change = output['change']
+					change_sign = '+'
+					data['change_sign'] = change_sign
+					if(output['previousClose']>output['close']):
+						change_sign ='-'
+						data['change_sign'] = change_sign
+					data['change'] =  str(change)
+					change_percent = output['changePercent']
+					data['change_percent'] =  change_percent
+			except:
+				data['error'] = "OOPS!!!SOMETHING WENT WRONG, PLEASE TRY AGAIN"
+		else:
+			data['valid'] = False
+
+	return render(request, 'stockdetails.html', {'data':data})
+
 
 def stockprofile(request):
 	data = {}
